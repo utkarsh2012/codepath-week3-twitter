@@ -24,7 +24,8 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func onLoginButton(_ sender: Any) {
-        let twitter  = BDBOAuth1SessionManager(baseURL: URL(string: "https://api.twitter.com"), consumerKey: "J9Tw0Drg0LMIRvdRXwkNZLE73", consumerSecret: "06pfvNeb9DRK1BbusSadYbbjJgKkLiaTMAl7KjGd9dTSZGr8zz")
+        let twitter  = TwitterClient.sharedInstance
+        
         twitter?.deauthorize()
         twitter?.fetchRequestToken(withPath: "oauth/request_token", method: "GET", callbackURL: URL(string: "twitterdemo://oauth"), scope: nil, success: { (request_token) in
             print("Got a token!")
