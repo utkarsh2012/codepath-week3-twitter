@@ -17,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if User.currentUser != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+            window?.rootViewController = vc
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (Notification) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            
+            self.window?.rootViewController = vc
+        }
+        
         return true
     }
 
@@ -43,30 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let requestToken = BDBOAuth1Credential(queryString: url.query)
-        let twitter = TwitterClient.sharedInstance
-        print("Got access token")
-        
-        
-        twitter?.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (access_token) in
-            twitter?.currentAccount(success: { (user) in
-                print(user.name!)
-            }, failure: { (error) in
-                print(error.localizedDescription)
-            })
-            
-            twitter?.homeTimeline(success: { (tweets) in
-                for tweet in tweets {
-                    print(tweet.text!)
-                }
-            }, failure: { (error) in
-                print(error.localizedDescription)
-            })
-        }, failure: { (error) in
-            print(error.debugDescription)
-        })
-        
-        
+        TwitterClient.sharedInstance?.handleOpenUrl(url: url)
         return true
     }
 

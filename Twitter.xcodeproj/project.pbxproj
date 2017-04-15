@@ -12,6 +12,8 @@
 		BF9561261EA1358300D7B77D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9561251EA1358300D7B77D /* User.swift */; };
 		BF9561281EA1359100D7B77D /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9561271EA1359100D7B77D /* Tweet.swift */; };
 		BF95612B1EA13A9300D7B77D /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95612A1EA13A9300D7B77D /* TwitterClient.swift */; };
+		BF95612D1EA1F00A00D7B77D /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95612C1EA1F00A00D7B77D /* TweetsViewController.swift */; };
+		BF9561301EA1F2E000D7B77D /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF95612F1EA1F2E000D7B77D /* TweetCell.swift */; };
 		BFDA0F4F1EA0939200778386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDA0F4E1EA0939200778386 /* AppDelegate.swift */; };
 		BFDA0F541EA0939200778386 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFDA0F521EA0939200778386 /* Main.storyboard */; };
 		BFDA0F561EA0939200778386 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFDA0F551EA0939200778386 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		BF9561251EA1358300D7B77D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF9561271EA1359100D7B77D /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		BF95612A1EA13A9300D7B77D /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		BF95612C1EA1F00A00D7B77D /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
+		BF95612F1EA1F2E000D7B77D /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		BFDA0F4B1EA0939200778386 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFDA0F4E1EA0939200778386 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFDA0F531EA0939200778386 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3820FC1EA0990400FFA136 /* LoginViewController.swift */,
+				BF95612C1EA1F00A00D7B77D /* TweetsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -86,6 +91,14 @@
 				BF95612A1EA13A9300D7B77D /* TwitterClient.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		BF95612E1EA1F2C700D7B77D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF95612F1EA1F2E000D7B77D /* TweetCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		BFDA0F421EA0939200778386 = {
@@ -109,6 +122,7 @@
 		BFDA0F4D1EA0939200778386 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				BF95612E1EA1F2C700D7B77D /* Views */,
 				BF9561291EA13A7800D7B77D /* API */,
 				BF9561241EA1355F00D7B77D /* ViewControllers */,
 				BF9561231EA1355700D7B77D /* Models */,
@@ -245,7 +259,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF95612B1EA13A9300D7B77D /* TwitterClient.swift in Sources */,
+				BF9561301EA1F2E000D7B77D /* TweetCell.swift in Sources */,
 				BF3820FD1EA0990400FFA136 /* LoginViewController.swift in Sources */,
+				BF95612D1EA1F00A00D7B77D /* TweetsViewController.swift in Sources */,
 				BFDA0F4F1EA0939200778386 /* AppDelegate.swift in Sources */,
 				BF9561261EA1358300D7B77D /* User.swift in Sources */,
 				BF9561281EA1359100D7B77D /* Tweet.swift in Sources */,
