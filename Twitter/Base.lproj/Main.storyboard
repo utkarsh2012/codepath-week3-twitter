@@ -155,6 +155,7 @@
                                             <outlet property="timeLabel" destination="ev5-CT-fqz" id="8wb-Ry-MhB"/>
                                             <outlet property="tweetTextLabel" destination="fbt-UA-Tg2" id="IEQ-lr-OkS"/>
                                             <outlet property="usernameLabel" destination="4NN-OI-uwF" id="1ix-e3-qOh"/>
+                                            <segue destination="9ZN-jW-Rf2" kind="show" id="D9p-T6-Dx9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -214,6 +215,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3u7-Yg-STJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3268" y="89.505247376311857"/>
+        </scene>
+        <!--Tweet Detail View Controller-->
+        <scene sceneID="aoe-tM-XVd">
+            <objects>
+                <viewController id="9ZN-jW-Rf2" customClass="TweetDetailViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CxE-Bn-4gz"/>
+                        <viewControllerLayoutGuide type="bottom" id="gnJ-mj-nj2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a5R-rf-HC1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hJT-oZ-om7">
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="xcF-E0-gBB">
+                            <connections>
+                                <action selector="onTweetButton:" destination="9ZN-jW-Rf2" id="re8-Ee-Cx3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBB-7G-Oje" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2329" y="850"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ajH-tn-WOe">
