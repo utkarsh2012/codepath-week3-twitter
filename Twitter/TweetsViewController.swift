@@ -37,7 +37,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tweets != nil {
             return tweets.count
@@ -58,6 +59,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func onNewTweetButton(_ sender: Any) {
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTweetSegue" {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: cell)
+            let tweet = tweets[indexPath!.row]
+            
+            let tweetDetailViewController = segue.destination as! TweetDetailViewController
+            tweetDetailViewController.tweet = tweet
+        }
     }
     
     func onRefresh() {

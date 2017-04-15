@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="87.706146926536732"/>
         </scene>
-        <!--Tweets View Controller-->
+        <!--Tweets-->
         <scene sceneID="Xlb-WG-cLk">
             <objects>
                 <viewController id="nKI-nT-YGK" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="139" id="Ufm-ot-clf" customClass="TweetCell" customModule="Twitter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="139" id="Ufm-ot-clf" customClass="TweetCell" customModule="Twitter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="139"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ufm-ot-clf" id="Q5S-bc-nyW">
@@ -160,7 +160,7 @@
                                             <outlet property="timeLabel" destination="ev5-CT-fqz" id="8wb-Ry-MhB"/>
                                             <outlet property="tweetTextLabel" destination="fbt-UA-Tg2" id="IEQ-lr-OkS"/>
                                             <outlet property="usernameLabel" destination="4NN-OI-uwF" id="1ix-e3-qOh"/>
-                                            <segue destination="4hZ-5d-iC1" kind="show" id="tlK-an-crM"/>
+                                            <segue destination="4hZ-5d-iC1" kind="show" identifier="showTweetSegue" id="Qfk-kj-KTF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -168,7 +168,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bW4-aj-yf7">
+                    <navigationItem key="navigationItem" title="Tweets" id="bW4-aj-yf7">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="KLT-qq-Lib">
                             <connections>
                                 <action selector="onLogoutButton:" destination="nKI-nT-YGK" id="sLZ-8z-HbY"/>
@@ -194,7 +194,7 @@
         <!--New Tweet View Controller-->
         <scene sceneID="xyN-sb-Llg">
             <objects>
-                <viewController id="8bl-Kq-ddq" customClass="NewTweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewTweetViewController" id="8bl-Kq-ddq" customClass="NewTweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RyB-0f-VX7"/>
                         <viewControllerLayoutGuide type="bottom" id="y01-FZ-0bE"/>
@@ -219,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3u7-Yg-STJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3210" y="90"/>
+            <point key="canvasLocation" x="3209" y="109"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ajH-tn-WOe">
@@ -255,9 +255,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oc4-Lb-HMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328.8000000000002" y="89.505247376311857"/>
+            <point key="canvasLocation" x="2391" y="109"/>
         </scene>
-        <!--Tweet Detail View Controller-->
+        <!--Tweet-->
         <scene sceneID="B5k-QS-vlu">
             <objects>
                 <viewController id="4hZ-5d-iC1" customClass="TweetDetailViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -277,7 +277,7 @@
                                         <rect key="frame" x="8" y="114" width="75" height="75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="God retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0l-fU-eQx">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="God retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0l-fU-eQx">
                                         <rect key="frame" x="91" y="85" width="84" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -342,14 +342,39 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="favoriteCount" destination="o4j-Fd-W5w" id="YbF-cz-jYu"/>
+                                    <outlet property="nameLabel" destination="XeM-mb-7c2" id="Bbq-le-XSJ"/>
+                                    <outlet property="profilePicture" destination="G7c-9q-PMu" id="3Wp-sI-3A6"/>
+                                    <outlet property="retweeCount" destination="iPz-do-dGW" id="TfH-Jf-LTw"/>
+                                    <outlet property="retweededBtLabel" destination="i0l-fU-eQx" id="pnG-QF-fGQ"/>
+                                    <outlet property="timestampLabel" destination="ny9-JO-z15" id="h5a-ew-Rll"/>
+                                    <outlet property="tweetLabel" destination="KpO-3c-PxX" id="Gow-et-x3b"/>
+                                    <outlet property="usernameLabel" destination="Qjb-TW-cZb" id="5vW-Qy-gTd"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Tweet" id="qV8-qR-NfN">
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="hfn-3F-sUn">
+                            <connections>
+                                <action selector="onReplyButton:" destination="4hZ-5d-iC1" id="WD0-mS-k5a"/>
+                                <segue destination="aDU-3a-fa7" kind="popoverPresentation" popoverAnchorBarButtonItem="hfn-3F-sUn" id="AUk-np-wyf">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tweetView" destination="yuU-Ny-jeV" id="T7l-JJ-lNS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOQ-pf-C0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="849"/>
+            <point key="canvasLocation" x="1582" y="848"/>
         </scene>
     </scenes>
     <resources>
@@ -357,4 +382,7 @@
         <image name="reply" width="100" height="100"/>
         <image name="retweet" width="255" height="145"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AUk-np-wyf"/>
+    </inferredMetricsTieBreakers>
 </document>

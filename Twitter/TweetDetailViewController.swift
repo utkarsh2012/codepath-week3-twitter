@@ -10,20 +10,24 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
+    @IBOutlet weak var tweetView: TweetView!
     var tweet: Tweet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tweetView.tweet = tweet
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onTweetButton(_ sender: Any) {
+    @IBAction func onReplyButton(_ sender: Any) {
         
     }
+    
     
     /*
     // MARK: - Navigation

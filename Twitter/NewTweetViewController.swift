@@ -26,6 +26,7 @@ class NewTweetViewController: UIViewController {
     }
     
     @IBAction func onTweetButton(_ sender: Any) {
+        
     }
     /*
     // MARK: - Navigation
