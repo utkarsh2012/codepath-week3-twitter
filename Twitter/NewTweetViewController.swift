@@ -7,13 +7,31 @@
 //
 
 import UIKit
+import AFNetworking
 
 class NewTweetViewController: UIViewController {
+    var tweet: Tweet?
 
+    @IBOutlet weak var inReplyToLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var newTweetText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        newTweetText.becomeFirstResponder()
+        
+        let currentUser = User.currentUser
+        
+        profileImage.setImageWith((currentUser?.profileUrl)!)
+        nameLabel.text = currentUser?.name
+        userNameLabel.text = currentUser?.screenName
+        
+        if tweet != nil {
+            inReplyToLabel.isHidden = false
+            inReplyToLabel.text = "Reply to \(tweet?.user?.screenName ?? "")"
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,8 +44,26 @@ class NewTweetViewController: UIViewController {
     }
     
     @IBAction func onTweetButton(_ sender: Any) {
-        
+        if self.tweet != nil {
+            TwitterClient.sharedInstance?.replyToTweet(reply: newTweetText.text!, replyStatusId: (self.tweet?.tweetId)!, success: { (response) in
+                print("Success tweet!")
+                print(response)
+                self.dismiss(animated: true, completion: nil)
+            }, failure: { (error) in
+                print(error)
+            })
+        } else {
+            TwitterClient.sharedInstance?.tweet(status: newTweetText.text!, success: { (response) in
+                print("Success tweet!")
+                print(response)
+                self.dismiss(animated: true, completion: nil)
+            }, failure: { (error) in
+                print(error)
+            })
+        }
     }
+
+    
     /*
     // MARK: - Navigation
 

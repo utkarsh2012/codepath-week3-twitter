@@ -11,11 +11,16 @@ import UIKit
 class TweetDetailViewController: UIViewController {
 
     @IBOutlet weak var tweetView: TweetView!
+    @IBOutlet weak var replyIconView: UIImageView!
+    @IBOutlet weak var favoriteIconView: UIImageView!
+    @IBOutlet weak var retweetIconView: UIImageView!
+    
     var tweet: Tweet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tweetView.tweet = tweet
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +33,15 @@ class TweetDetailViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "replyToTweetSegue" {
+            if let navController = segue.destination as? UINavigationController {
+                if let childVC = navController.topViewController as? NewTweetViewController {
+                    childVC.tweet = tweet
+                }
+            }
+        }
+    }
     
     /*
     // MARK: - Navigation
