@@ -21,6 +21,26 @@ class TweetDetailViewController: UIViewController {
         super.viewDidLoad()
         tweetView.tweet = tweet
         
+        if tweet?.retweeted != nil && tweet?.retweeted == true {
+            retweetIconView.alpha = 1
+        }
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red:0.11, green:0.63, blue:0.95, alpha:1.00)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.tintColor = .white
+        
+        let replyTap = UITapGestureRecognizer(target: self, action: #selector(replyIconTapped))
+        replyIconView.addGestureRecognizer(replyTap)
+        replyIconView.isUserInteractionEnabled = true
+        
+        let favTap = UITapGestureRecognizer(target: self, action: #selector(favIconTapped))
+        favoriteIconView.addGestureRecognizer(favTap)
+        favoriteIconView.isUserInteractionEnabled = true
+        
+        let retweetTap = UITapGestureRecognizer(target: self, action: #selector(retweetIconTapped))
+        retweetIconView.addGestureRecognizer(retweetTap)
+        retweetIconView.isUserInteractionEnabled = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +61,26 @@ class TweetDetailViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func replyIconTapped(){
+        performSegue(withIdentifier: "replyToTweetSegue", sender: nil)
+    }
+    
+    func favIconTapped(){
+        TwitterClient.sharedInstance?.favorite(id: (tweet?.tweetId)!, action: nil, success: { (resp) in
+            self.favoriteIconView.alpha = 1
+        }, failure: { (error) in
+            print(error)
+        })
+    }
+    
+    func retweetIconTapped(){
+        TwitterClient.sharedInstance?.retweet(id: (tweet?.tweetId)!, success: { (tweet) in
+            self.retweetIconView.alpha = 1
+        }, failure: { (error) in
+            print(error)
+        })
     }
     
     /*

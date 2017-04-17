@@ -96,4 +96,37 @@ class TwitterClient: BDBOAuth1SessionManager {
                 failure((error)!)
         })
     }
+    
+    func retweet(id: String, success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
+        post("1.1/statuses/retweet/\(id).json", parameters: ["id" : id], progress: nil,
+             success: { (task: URLSessionDataTask?, response: Any?) in
+                
+                let dictionary = response as! NSDictionary
+                let tweet = Tweet(dictionary: dictionary)
+                success(tweet)
+        },
+             failure: { (task: URLSessionDataTask?, error: Error?) in
+                failure((error)!)
+        }
+        )
+    }
+    
+    func unfavorite(id: String, action: String?, success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()) {
+        favorite(id: id, action: "destroy", success: success, failure: failure)
+    }
+    
+    func favorite(id: String, action: String?, success: @escaping (NSDictionary) -> (), failure: @escaping (Error) -> ()) {
+        let method = action ?? "create"
+        post("1.1/favorites/\(method).json?id=\(id)", parameters: ["id" : id], progress: nil,
+             success: { (task: URLSessionDataTask?, response: Any?) in
+                
+                let resp = response as! NSDictionary
+                success(resp)
+        },
+             failure: { (task: URLSessionDataTask?, error: Error?) in
+                
+                failure((error)!)
+        }
+        )
+    }
 }

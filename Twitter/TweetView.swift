@@ -19,13 +19,12 @@ class TweetView: UIView {
     @IBOutlet weak var favoriteCount: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var tweetLabel: UILabel!
-
     
     var tweet: Tweet! {
         didSet {
             if tweet.retweeted != nil && tweet.retweeted! {
                 retweededBtLabel.isHidden = false
-                retweededBtLabel.text = "God retweeted"
+                retweededBtLabel.text = "\(tweet.user?.screenName ?? "") retweeted"
             }
 
             usernameLabel.text = tweet.user?.screenName

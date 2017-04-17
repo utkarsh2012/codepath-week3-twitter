@@ -16,7 +16,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var tweetTextLabel: UILabel!
-    
+    @IBOutlet weak var retweetIconView: UIImageView!
+
     var tweet: Tweet! {
         didSet {
             nameLabel.text = tweet.user?.name
@@ -37,7 +38,8 @@ class TweetCell: UITableViewCell {
             
             if tweet.retweeted != nil && tweet.retweeted! {
                 retweetLabel.isHidden = false
-                retweetLabel.text = "god retweeted"
+                retweetLabel.text = "\(tweet.user?.screenName ?? "") retweeted"
+                retweetIconView.alpha = 1
             }
         }
     }

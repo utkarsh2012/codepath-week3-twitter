@@ -70,7 +70,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Hello World! Setting up my twttr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbt-UA-Tg2">
                                                     <rect key="frame" x="75" y="44" width="292" height="66"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -94,7 +94,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="god retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMb-86-VXo">
-                                                    <rect key="frame" x="75" y="0.0" width="77" height="14"/>
+                                                    <rect key="frame" x="75" y="4" width="77" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -132,7 +132,7 @@
                                                 <constraint firstItem="fbt-UA-Tg2" firstAttribute="leading" secondItem="k6o-Dl-pZe" secondAttribute="trailing" constant="7" id="6K7-zf-0lX"/>
                                                 <constraint firstAttribute="bottom" secondItem="OSV-Oq-s8w" secondAttribute="bottom" constant="8" id="90E-rm-HLy"/>
                                                 <constraint firstItem="0Ca-v3-07z" firstAttribute="top" secondItem="fbt-UA-Tg2" secondAttribute="bottom" constant="5" id="C0C-9G-eDZ"/>
-                                                <constraint firstItem="JQ2-9H-4CV" firstAttribute="top" secondItem="HMb-86-VXo" secondAttribute="bottom" constant="8" id="C2a-rs-38K"/>
+                                                <constraint firstItem="JQ2-9H-4CV" firstAttribute="top" secondItem="HMb-86-VXo" secondAttribute="bottom" constant="4" id="C2a-rs-38K"/>
                                                 <constraint firstAttribute="bottom" secondItem="0Ca-v3-07z" secondAttribute="bottom" constant="8" id="Cml-Qa-RAc"/>
                                                 <constraint firstItem="YfV-C9-tdB" firstAttribute="leading" secondItem="0Ca-v3-07z" secondAttribute="trailing" constant="82" id="Gqk-f2-9Xw"/>
                                                 <constraint firstItem="k6o-Dl-pZe" firstAttribute="leading" secondItem="Q5S-bc-nyW" secondAttribute="leading" constant="8" id="MLM-c4-Y92"/>
@@ -149,7 +149,7 @@
                                                 <constraint firstItem="4NN-OI-uwF" firstAttribute="top" secondItem="Q5S-bc-nyW" secondAttribute="top" constant="22" id="j7l-7v-DQe"/>
                                                 <constraint firstItem="HMb-86-VXo" firstAttribute="leading" secondItem="Q5S-bc-nyW" secondAttribute="leading" constant="75" id="jJ0-9l-mdI"/>
                                                 <constraint firstItem="4NN-OI-uwF" firstAttribute="leading" secondItem="JQ2-9H-4CV" secondAttribute="trailing" constant="5" id="jhA-Ka-n7o"/>
-                                                <constraint firstItem="HMb-86-VXo" firstAttribute="top" secondItem="Q5S-bc-nyW" secondAttribute="top" id="oIx-UX-AyW"/>
+                                                <constraint firstItem="HMb-86-VXo" firstAttribute="top" secondItem="Q5S-bc-nyW" secondAttribute="top" constant="4" id="oIx-UX-AyW"/>
                                                 <constraint firstItem="YfV-C9-tdB" firstAttribute="centerY" secondItem="0Ca-v3-07z" secondAttribute="centerY" id="pT4-pf-t1O"/>
                                                 <constraint firstItem="k6o-Dl-pZe" firstAttribute="top" secondItem="Q5S-bc-nyW" secondAttribute="top" constant="22" id="xUw-Hf-kBI"/>
                                             </constraints>
@@ -157,6 +157,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="JQ2-9H-4CV" id="Cl8-Ui-qeN"/>
                                             <outlet property="profileImageView" destination="k6o-Dl-pZe" id="O6b-6w-9aA"/>
+                                            <outlet property="retweetIconView" destination="YfV-C9-tdB" id="uGY-9S-laG"/>
                                             <outlet property="retweetLabel" destination="HMb-86-VXo" id="49Z-FG-qWz"/>
                                             <outlet property="timeLabel" destination="ev5-CT-fqz" id="8wb-Ry-MhB"/>
                                             <outlet property="tweetTextLabel" destination="fbt-UA-Tg2" id="IEQ-lr-OkS"/>
@@ -171,11 +172,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tweets" id="bW4-aj-yf7">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="KLT-qq-Lib">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onLogoutButton:" destination="nKI-nT-YGK" id="sLZ-8z-HbY"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="h0z-zu-USd">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onNewTweetButton:" destination="nKI-nT-YGK" id="jh0-og-EWh"/>
                                 <segue destination="aDU-3a-fa7" kind="popoverPresentation" identifier="newTweetSegue" popoverAnchorBarButtonItem="h0z-zu-USd" id="4r1-Kp-thA">
@@ -254,11 +257,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="U3e-IP-H4S">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="jOd-HM-zDT">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onCancel:" destination="8bl-Kq-ddq" id="gzH-Zh-BBq"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="PuW-dL-w5I">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onTweetButton:" destination="8bl-Kq-ddq" id="i8i-l7-RIY"/>
                             </connections>
@@ -389,18 +394,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hx-pM-QTK">
-                                        <rect key="frame" x="0.0" y="241" width="375" height="1"/>
+                                        <rect key="frame" x="8" y="241" width="359" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="JdY-2H-5bF"/>
-                                            <constraint firstAttribute="width" constant="375" id="sgS-BC-FBT"/>
+                                            <constraint firstAttribute="width" constant="359" id="sgS-BC-FBT"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KC9-ih-1Wg">
-                                        <rect key="frame" x="0.0" y="275" width="375" height="1"/>
+                                        <rect key="frame" x="8" y="275" width="359" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="BrS-7D-rhS"/>
+                                            <constraint firstAttribute="width" constant="359" id="BrS-7D-rhS"/>
                                             <constraint firstAttribute="height" constant="1" id="vpF-2m-R7J"/>
                                         </constraints>
                                     </view>
@@ -426,10 +431,10 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wcf-aq-qr4">
-                                        <rect key="frame" x="0.0" y="311" width="375" height="1"/>
+                                        <rect key="frame" x="8" y="311" width="359" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="3Pl-1L-E3U"/>
+                                            <constraint firstAttribute="width" constant="359" id="3Pl-1L-E3U"/>
                                             <constraint firstAttribute="height" constant="1" id="koD-Eo-MMm"/>
                                         </constraints>
                                     </view>
@@ -441,23 +446,23 @@
                                     <constraint firstItem="XeM-mb-7c2" firstAttribute="leading" secondItem="G7c-9q-PMu" secondAttribute="trailing" constant="8" id="4bG-rK-nY6"/>
                                     <constraint firstItem="a35-Hz-f8w" firstAttribute="leading" secondItem="wpu-he-0sY" secondAttribute="trailing" constant="105" id="58W-bk-i3c"/>
                                     <constraint firstItem="i0l-fU-eQx" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" constant="91" id="Bzv-EO-mXc"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wcf-aq-qr4" secondAttribute="trailing" id="F1W-Hn-SGa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wcf-aq-qr4" secondAttribute="trailing" constant="8" id="F1W-Hn-SGa"/>
                                     <constraint firstItem="KpO-3c-PxX" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" constant="8" id="Fg8-Pw-XG7"/>
                                     <constraint firstItem="Qjb-TW-cZb" firstAttribute="leading" secondItem="G7c-9q-PMu" secondAttribute="trailing" constant="8" id="G2z-Ty-DRh"/>
-                                    <constraint firstItem="Wcf-aq-qr4" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" id="HkJ-CM-CNP"/>
+                                    <constraint firstItem="Wcf-aq-qr4" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" constant="8" id="HkJ-CM-CNP"/>
                                     <constraint firstItem="Mbj-Kv-oXo" firstAttribute="leading" secondItem="iPz-do-dGW" secondAttribute="trailing" constant="8" id="Icw-ih-Fgd"/>
-                                    <constraint firstItem="0Hx-pM-QTK" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" id="K9B-Dc-tQq"/>
+                                    <constraint firstItem="0Hx-pM-QTK" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" constant="8" id="K9B-Dc-tQq"/>
                                     <constraint firstItem="0Hx-pM-QTK" firstAttribute="top" secondItem="ny9-JO-z15" secondAttribute="bottom" constant="6" id="KET-6l-LRf"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Hx-pM-QTK" secondAttribute="trailing" id="PFR-4G-BQI"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Hx-pM-QTK" secondAttribute="trailing" constant="8" id="PFR-4G-BQI"/>
                                     <constraint firstItem="iPz-do-dGW" firstAttribute="top" secondItem="ny9-JO-z15" secondAttribute="bottom" constant="15" id="Qrx-Dp-qBg"/>
                                     <constraint firstItem="wpu-he-0sY" firstAttribute="top" secondItem="KC9-ih-1Wg" secondAttribute="bottom" constant="10" id="Rkl-cU-qs7"/>
                                     <constraint firstItem="iPz-do-dGW" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" constant="8" id="SaW-IY-Lf8"/>
                                     <constraint firstAttribute="trailing" secondItem="KpO-3c-PxX" secondAttribute="trailing" constant="5" id="UWH-69-L2e"/>
                                     <constraint firstItem="o4j-Fd-W5w" firstAttribute="top" secondItem="KpO-3c-PxX" secondAttribute="bottom" constant="36" id="Whx-dh-fgg"/>
                                     <constraint firstItem="ny9-JO-z15" firstAttribute="top" secondItem="KpO-3c-PxX" secondAttribute="bottom" constant="8" id="YSa-cy-XOA"/>
-                                    <constraint firstItem="KC9-ih-1Wg" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" id="YhK-a8-jjP"/>
+                                    <constraint firstItem="KC9-ih-1Wg" firstAttribute="leading" secondItem="yuU-Ny-jeV" secondAttribute="leading" constant="8" id="YhK-a8-jjP"/>
                                     <constraint firstItem="CoY-hy-wXS" firstAttribute="baseline" secondItem="wpu-he-0sY" secondAttribute="baseline" id="aJM-gJ-RVd"/>
-                                    <constraint firstAttribute="trailing" secondItem="KC9-ih-1Wg" secondAttribute="trailing" id="bd4-Le-wlk"/>
+                                    <constraint firstAttribute="trailing" secondItem="KC9-ih-1Wg" secondAttribute="trailing" constant="8" id="bd4-Le-wlk"/>
                                     <constraint firstItem="Qjb-TW-cZb" firstAttribute="top" secondItem="XeM-mb-7c2" secondAttribute="bottom" constant="2" id="dGs-sy-CJJ"/>
                                     <constraint firstItem="a35-Hz-f8w" firstAttribute="top" secondItem="KC9-ih-1Wg" secondAttribute="bottom" constant="10" id="gKm-dh-DUx"/>
                                     <constraint firstItem="KpO-3c-PxX" firstAttribute="top" secondItem="G7c-9q-PMu" secondAttribute="bottom" constant="5" id="h5B-Cy-dXa"/>
@@ -498,6 +503,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Tweet" id="qV8-qR-NfN">
                         <barButtonItem key="rightBarButtonItem" title="Reply" id="hfn-3F-sUn">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onReplyButton:" destination="4hZ-5d-iC1" id="WD0-mS-k5a"/>
                                 <segue destination="aDU-3a-fa7" kind="popoverPresentation" identifier="replyToTweetSegue" popoverAnchorBarButtonItem="hfn-3F-sUn" id="AUk-np-wyf">
@@ -525,6 +531,6 @@
         <image name="retweet" width="255" height="145"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AUk-np-wyf"/>
+        <segue reference="4r1-Kp-thA"/>
     </inferredMetricsTieBreakers>
 </document>
